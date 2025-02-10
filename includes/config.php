@@ -3,7 +3,7 @@ require_once '../vendor/autoload.php';
 
 use Dotenv\Dotenv;
 
-$modeENV = 'prod';
+$modeENV = 'dev';
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->safeLoad();
 
