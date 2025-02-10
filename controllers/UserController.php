@@ -20,5 +20,63 @@ class UserController {
         //Renderizar la vista de registro de usuarios
         $router->render('user/registerUser');
     }
+
+    public static function registerApi(Router $router) {
+        try {
+            header('Content-Type: application/json');  // Asegura que la respuesta sea interpretada como JSON
+            
+            // Obten los datos JSON del cuerpo de la solicitud
+            $json = file_get_contents('php://input');
+            $datos = json_decode($json, true); // Decodifica el JSON en un array asociativo
+        
+            // Sincroniza los datos con la clase Usuario
+            $user = new User();
+            $user->synchronize($datos);
+        
+            $alerts = $user->validateAccount();
+            $alerts = $user->validateEmail();
+            $alerts = $user->validatePhone();
+        
+            if (empty($alerts)) {
+                $userExists = User::where('email', $user->email);
+        
+                if ($userExists) {
+                    echo json_encode([
+                        'status' => 'error',
+                        'data' => 'El Usuario ya está registrado'
+                    ]);
+                    exit;
+                } else {
+                    $response = $user->save();
+        
+                    if ($response) {
+                        echo json_encode([
+                            'status' => 'success',
+                            'data' => 'Usuario registrado exitosamente'
+                        ]);
+                    } else {
+                        echo json_encode([
+                            'status' => 'error',
+                            'data' => 'Hubo un error al registrar al usuario'
+                        ]);
+                    }
+                    exit;
+                }
+            } else {
+                echo json_encode([
+                    'status' => 'error',
+                    'data' => $alerts,
+                ]);
+                exit;
+            }
+        
+        } catch (Exception $e) {
+            echo json_encode([
+                'status' => 'error',
+                'data' => 'Ocurrió un error al procesar la solicitud',
+                'error' => $e->getMessage()
+            ]);
+        }
+    }
    
 }
