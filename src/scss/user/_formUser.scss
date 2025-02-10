@@ -1,0 +1,62 @@
+@use '../baseStyles/variables' as v;
+@use '../baseStyles/mixins' as m;
+#formData{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    @include m.desktop{
+        max-width: 54rem;
+        margin-bottom: 0;
+    }
+}
+#formData #conatinerElementInput{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1.3rem 0;
+    @include m.desktop{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
+    }
+}
+
+#formData #conatinerElementInput .error-message {
+    font-size: 0.9rem;
+    margin-top: 5px; /* Espacio entre el input y el mensaje */
+    display: block;  /* Asegura que se muestre en una línea separada */
+    color: red;
+}
+
+#formData div label{
+    color: v.$color-primary;
+    font-weight: 700;
+}
+#formData div #containerInput{
+    @include m.desktop{
+        width: 70%;
+    }
+}
+#formData div #containerInput input{
+    background-color: v.$color-input-background;
+    border: none;
+    padding: 1rem;
+    width: 100%;
+}
+
+#formData .containerButton{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+}
+#formData .containerButton button{
+    background-color: v.$color-input-background;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    border: none;
+    &:hover{
+        cursor: pointer;
+    }
+}
