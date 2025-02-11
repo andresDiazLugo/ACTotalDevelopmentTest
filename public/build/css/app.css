@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 /* Variaciones de texto */
 /* Acentos y estados */
@@ -25,6 +24,7 @@
 }
 @media (min-width: 1024px) {
   #formData #conatinerElementInput {
+    max-width: 92%;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -34,9 +34,8 @@
 
 #formData #conatinerElementInput .error-message {
   font-size: 0.9rem;
-  margin-top: 5px; /* Espacio entre el input y el mensaje */
-  display: block; /* Asegura que se muestre en una línea separada */
-  color: red;
+  margin-top: 5px;
+  display: block;
 }
 
 #formData div label {
@@ -61,7 +60,12 @@
   display: flex;
   justify-content: end;
   align-items: center;
-  width: 100%;
+  max-width: 100%;
+}
+@media (min-width: 1024px) {
+  #formData .containerButton {
+    max-width: 92%;
+  }
 }
 
 #formData .containerButton button {
@@ -487,12 +491,6 @@ body {
   font-size: 1.6rem;
 }
 
-.contenedor {
-  width: 95%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 a {
   text-decoration: none;
 }
@@ -525,8 +523,8 @@ main {
 }
 
 .logo picture {
-  width: 18rem; /* Ajusta el tamaño del logo */
-  height: 18rem; /* Ajusta el tamaño del logo */
+  width: 18rem;
+  height: 18rem;
 }
 
 #loading {

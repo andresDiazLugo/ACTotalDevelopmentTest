@@ -2,6 +2,7 @@
 @use '../baseStyles/mixins' as m;
 
 .infoContainer {
+  
     display: grid;
     grid-template-columns: 1fr;
     align-items: start; 

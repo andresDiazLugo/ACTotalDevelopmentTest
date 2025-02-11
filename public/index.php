@@ -12,6 +12,7 @@ $router = new Router();
 // Crear Cuenta
 $router->get('/', [UserController::class, 'register']);
 $router->post('/register', [UserController::class, 'registerApi']);
+$router->get('/userGetAllApi', [UserController::class, 'userGetAllApi']);
 $router->get('/404', [PageController::class, 'error']);
 
 $router->checkRoutes();
