@@ -10,7 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: v.$color-background;
-    color: v.$blanco;
+    color: v.$white;
 }
 *, *:before, *:after {
     box-sizing: inherit;
@@ -18,11 +18,6 @@ body {
 body {
     font-family: v.$fuente_principal;
     font-size: 1.6rem;
-}
-.contenedor {
-    width: 95%;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 a {
     text-decoration: none;
@@ -50,8 +45,8 @@ main{
     object-fit: contain; 
 }
 .logo picture {
-    width: 18rem; /* Ajusta el tamaño del logo */
-    height: 18rem; /* Ajusta el tamaño del logo */
+    width: 18rem;
+    height: 18rem; 
 }
 #loading{
     text-align: center;

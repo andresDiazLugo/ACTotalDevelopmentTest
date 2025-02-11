@@ -15,6 +15,7 @@
     gap: 0.5rem;
     margin: 1.3rem 0;
     @include m.desktop{
+        max-width: 92%;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
@@ -24,9 +25,8 @@
 
 #formData #conatinerElementInput .error-message {
     font-size: 0.9rem;
-    margin-top: 5px; /* Espacio entre el input y el mensaje */
-    display: block;  /* Asegura que se muestre en una línea separada */
-    color: red;
+    margin-top: 5px;
+    display: block; 
 }
 
 #formData div label{
@@ -36,6 +36,7 @@
 #formData div #containerInput{
     @include m.desktop{
         width: 70%;
+        
     }
 }
 #formData div #containerInput input{
@@ -49,7 +50,11 @@
     display: flex;
     justify-content: end;
     align-items: center;
-    width: 100%;
+    max-width: 100%;
+    @include m.desktop{
+        max-width: 92%;
+    }
+
 }
 #formData .containerButton button{
     background-color: v.$color-input-background;

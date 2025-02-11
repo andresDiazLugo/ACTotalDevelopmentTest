@@ -78,5 +78,29 @@ class UserController {
             ]);
         }
     }
+
+    public static function userGetAllApi() {
+        try {
+            header('Content-Type: application/json');
+            $users = User::all();
+            if($users){
+                echo json_encode([
+                        'status' => 'success',
+                        'data' => $users
+                ]);
+                exit;    
+            }
+            echo json_encode([
+                'status' => 'error',
+                'data' => $users
+            ]);
+        } catch (Exception $e) {
+            echo json_encode([
+                'status' => 'error',
+                'data' => 'Ocurrió un error al procesar la solicitud',
+                'error' => $e->getMessage()
+            ]);
+        }
+    }
    
 }
